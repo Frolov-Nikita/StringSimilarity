@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace StringMatching
+namespace StringSimilarity
 {
     class Program
     {
@@ -20,21 +20,12 @@ namespace StringMatching
             };
             foreach (var item in li)
                 Check(item.Item1, item.Item2);
-            /*
-             * "hello world!" - "HELLO WORLD!"    : 0,916667 totalLength 24
-             * "hello world!" - "   hello world!" : 0,940741 totalLength 27
-             * "hello world!" - "привет мир!"     : 0,126087 totalLength 23
-             * "hello world!" - "hello world!"    : 1,0 totalLength 24
-             * "hello world!" - "world hello!"    : 0,654167 totalLength 24
-             * "hello world!" - "hllwrld"         : 0,747368 totalLength 19
-             * "hello world!" - "h"                : 0,192308 totalLength 13
-             */
         }
 
         private static void Check(string src, string dst)
         {
             var s1 = Similar(src, dst);
-            Console.WriteLine($"\"{src}\" - \"{dst}\" : {s1:#0.0#####} totalLength {src.Length + dst.Length}");
+            Console.WriteLine($"Similar(\"{src}\",\t\"{dst}\")\t= {s1:#0.0#####}");
         }
 
         /// <summary>
